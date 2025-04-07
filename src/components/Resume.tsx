@@ -17,7 +17,7 @@ export default function Resume() {
           ref={ref}
           className="max-w-3xl mx-auto text-center"
         >
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-700">
+          <div className="glass-card rounded-2xl p-8 shadow-xl border border-gray-700">
             <h2 className="text-3xl font-bold text-white mb-4">Like what you see?</h2>
             <p className="text-gray-300 mb-8">
               Check out my resume to learn more about my experience, skills, and achievements

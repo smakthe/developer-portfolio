@@ -46,14 +46,14 @@ export default function Experience() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 mb-16">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.2 }}
-              className="bg-gray-800 rounded-lg p-6 shadow-lg"
+              className="glass-card rounded-lg p-6 shadow-lg"
             >
               <h3 className="text-xl font-semibold mb-4 text-blue-400">{category.title}</h3>
               <div className="flex flex-wrap gap-2">
