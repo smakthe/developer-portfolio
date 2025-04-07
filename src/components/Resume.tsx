@@ -18,11 +18,11 @@ export default function Resume() {
           className="max-w-3xl mx-auto text-center"
         >
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-700">
-            <FileText className="w-16 h-16 text-blue-400 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-white mb-4">Like what you see?</h2>
             <p className="text-gray-300 mb-8">
-              Check out my detailed resume to learn more about my experience, skills, and achievements.
+              Check out my resume to learn more about my experience, skills, and achievements
             </p>
+            <FileText className="w-16 h-16 text-blue-400 mx-auto mb-6" />
             <motion.a
               href="https://somak-resume.vercel.app/"
               target="_blank"

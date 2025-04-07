@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["C", "C++", "Java", "Rust", "Ruby", "JavaScript", "TypeScript", "Python", "PHP"]
+    skills: ["Ruby", "JavaScript", "TypeScript", "Python", "C", "C++", "Java", "PHP", "Go", "Rust"]
   },
   {
     title: "Databases",
@@ -16,7 +16,7 @@ const skillCategories = [
   },
   {
     title: "Cloud & DevOps",
-    skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "GitHub Actions", "Airflow", "Ansible"]
+    skills: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "Airflow", "Ansible"]
   }
 ];
 
