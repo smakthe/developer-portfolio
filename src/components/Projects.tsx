@@ -37,7 +37,7 @@ export default function Projects() {
 
   return (
     <section className="py-20 bg-black" id="projects">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
