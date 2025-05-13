@@ -32,6 +32,7 @@ const projects = [
     description: "Cerver is a backend-only API written in C for scaffolding CRUD resources including a basic three-tier database and a multi-threaded HTTP server",
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/cerver.png?auto=format&fit=crop&q=80&w=800",
     url: "https://github.com/smakthe/cerver/"
+  }
 ];
 
 export default function Projects() {
