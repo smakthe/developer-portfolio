@@ -1,0 +1,35 @@
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Build output (keep dist for inspection but don't copy to build context unnecessarily)
+dist
+
+# Environment files
+.env*
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+compose.yaml
+.dockerignore
+
+# Documentation
+README*.md
+*.md
+
+# Logs
+*.log
