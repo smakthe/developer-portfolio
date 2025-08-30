@@ -9,6 +9,9 @@ on:
 env:
   DOCKER_HUB_USERNAME: smakthe
   IMAGE_NAME: portfolio
+  EC2_USERNAME: ec2-admin
+  PORT: 3001
+  NODE_ENV: production
 
 jobs:
   build-and-push:
@@ -43,9 +46,11 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
+          username: ${{ env.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # Pull the latest image and run the new container
+            # Pull the latest image
             docker-compose pull
+            
+            # Run the new container
             docker-compose up -d
