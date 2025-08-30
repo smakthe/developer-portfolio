@@ -7,11 +7,7 @@ on:
     branches: [ "master" ]
 
 env:
-  DOCKER_HUB_USERNAME: smakthe
   IMAGE_NAME: portfolio
-  EC2_USERNAME: ec2-admin
-  PORT: 3001
-  NODE_ENV: production
 
 jobs:
   build-and-push:
@@ -28,7 +24,7 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ env.DOCKER_HUB_USERNAME }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
           
       - name: Build and push Docker image
@@ -36,17 +32,17 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ${{ env.EC2_USERNAME }}
+          username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             # Pull the latest image
