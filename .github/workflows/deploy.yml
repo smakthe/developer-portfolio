@@ -5,6 +5,21 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:  # Enables manual triggering
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: false
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+      force_rebuild:
+        description: 'Force rebuild image even if no changes'
+        required: false
+        type: boolean
+        default: false
 
 env:
   IMAGE_NAME: portfolio
@@ -33,6 +48,7 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+          no-cache: ${{ github.event.inputs.force_rebuild == 'true' }}
 
   deploy:
     needs: build-and-push
@@ -51,3 +67,6 @@ jobs:
             
             # Run the new container
             docker-compose up -d
+            
+            # Clean up unused images to save space
+            docker image prune -f
