@@ -46,16 +46,6 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # Pull the latest image
-            docker pull ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
-            
-            # Stop and remove the old container if it exists
-            docker stop portfolio || true
-            docker rm portfolio || true
-            
-            # Run the new container
-            docker run -d \
-              --name portfolio \
-              --restart unless-stopped \
-              -p 3001:80 \
-              ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+            # Pull the latest image and run the new container
+            docker-compose pull
+            docker-compose up -d
