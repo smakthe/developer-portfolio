@@ -16,6 +16,12 @@ const projects = [
     url: "https://ai-or-not-game.vercel.app/"
   },
   {
+    title: "Tic Tac Toe Game",
+    description: "A tic-tac-toe game to play with friends or challange yourself vs AI",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/tic-tac-toe-vs-ai.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://tic-tac-toe-vs-ai-game.vercel.app/"
+  },
+  {
     title: "Love Calculator",
     description: "A fun application to calculate compatibility",
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/love-calculator.png?auto=format&fit=crop&q=80&w=800",
