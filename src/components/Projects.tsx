@@ -22,10 +22,10 @@ const projects = [
     url: "https://tic-tac-toe-vs-ai-game.vercel.app/"
   },
   {
-    title: "Love Calculator",
-    description: "A fun application to calculate compatibility",
-    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/love-calculator.png?auto=format&fit=crop&q=80&w=800",
-    url: "https://calculate-love.netlify.app/"
+    title: "Job Board",
+    description: "A comprehensive web platform built with Ruby on Rails that connects job seekers with recruiters featuring job listings, job applications and dashboards for both recruiters and job seekers.",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/job-board.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://job-board-app-live-a4b4b1cceda6.herokuapp.com/"
   },
   {
     title: "কলম",
