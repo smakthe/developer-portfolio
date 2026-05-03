@@ -22,6 +22,12 @@ const projects = [
     url: "https://tic-tac-toe-vs-ai-game.vercel.app/"
   },
   {
+    title: "DFA Simulator",
+    description: "A simulator for creating finite state machines and playing around with them",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/dfa-sim.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://dfa-sim.netlify.app/"
+  },
+  {
     title: "Job Board",
     description: "A comprehensive web platform built with Ruby on Rails that connects job seekers with recruiters featuring job listings, job applications and dashboards for both recruiters and job seekers.",
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/job-board.png?auto=format&fit=crop&q=80&w=800",
