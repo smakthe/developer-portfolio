@@ -1,72 +1,29 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  workflow_dispatch:  # Enables manual triggering
-    inputs:
-      environment:
-        description: 'Deployment environment'
-        required: false
-        default: 'production'
-        type: choice
-        options:
-          - production
-          - staging
-      force_rebuild:
-        description: 'Force rebuild image even if no changes'
-        required: false
-        type: boolean
-        default: false
-
-env:
-  IMAGE_NAME: portfolio
+  workflow_dispatch:
 
 jobs:
-  build-and-push:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: 'npm'
-      
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-          
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
-          no-cache: ${{ github.event.inputs.force_rebuild == 'true' }}
 
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd ~/portfolio
-            # Pull the latest image
-            docker-compose pull
-            
-            # Run the new container
-            docker-compose up -d
-            
-            # Clean up unused images to save space
-            docker image prune -f
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
