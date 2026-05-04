@@ -2,78 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
-html {
-  scroll-behavior: smooth;
-  background: #000;
-}
-
-/* Enhanced section styles */
-section {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Luxury gradient overlay */
-section:not(:last-of-type)::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, 
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.8)
-  );
-  pointer-events: none;
-  backdrop-filter: blur(4px);
-}
-
-/* Shared glass effect for cards */
-.glass-card {
-  backdrop-filter: blur(16px);
-  background: rgba(31, 41, 55, 0.7) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-/* Remove old card styling since we're using the new glass-card class */
-.bg-gray-800 {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Animated text gradients */
-.text-transparent.bg-gradient-to-r {
-  background-size: 200% auto;
-  animation: shine 8s linear infinite;
-}
-
-/* Smooth transitions */
-a, button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Animations */
-@keyframes shine {
-  from {
-    background-position: 200% center;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Removed the hardcoded background: #000; so themes can breathe */
   }
-  to {
-    background-position: -200% center;
+  
+  body {
+    @apply antialiased;
+    margin: 0;
+    padding: 0;
   }
 }
 
-/* Scroll animations */
+/* Scroll animations used by the components */
 [data-inview="true"] {
   animation: fadeInUp 0.6s ease-out forwards;
 }
@@ -89,21 +31,25 @@ a, button {
   }
 }
 
-/* Luxury scrollbar */
+/* Neutral, adaptive scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  background: rgba(156, 163, 175, 0.4); 
   border-radius: 4px;
 }
 
-/* Focus states */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.7); 
+}
+
+/* Clean focus states for accessibility */
 :focus {
   outline: 2px solid rgba(59, 130, 246, 0.5);
   outline-offset: 2px;
