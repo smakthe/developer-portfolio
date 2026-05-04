@@ -22,6 +22,12 @@ const projects = [
     url: "https://tic-tac-toe-vs-ai-game.vercel.app/"
   },
   {
+    title: "Snake Game",
+    description: "A feature-rich snake game with classic, fast and obstacle modes to challange yourself",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/snake-game.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://github.com/smakthe/snake-game/"
+  },
+  {
     title: "DFA Simulator",
     description: "A simulator for creating finite state machines and playing around with them",
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/dfa-sim.png?auto=format&fit=crop&q=80&w=800",
