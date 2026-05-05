@@ -251,22 +251,6 @@ export default function InteractiveTerminal() {
         </div>
         <div ref={endRef} />
       </div>
-
-      {/* Mobile Quick Commands Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black/95 border-t border-green-500/30 p-3 flex gap-2 overflow-x-auto z-50 hide-scrollbar backdrop-blur-md">
-        {['help', 'whoami', 'experience', 'projects', 'resume', 'clear'].map((cmd) => (
-          <button
-            key={cmd}
-            onClick={(e) => {
-              e.stopPropagation();
-              executeCommand(cmd);
-            }}
-            className="text-green-500 border border-green-500/50 hover:bg-green-500 hover:text-black px-4 py-1.5 whitespace-nowrap text-sm font-medium transition-colors"
-          >
-            [{cmd}]
-          </button>
-        ))}
-      </div>
     </div>
   );
 }
