@@ -180,7 +180,7 @@ export default function InteractiveTerminal() {
       case 'resume': output = <ResumeOutput />; break;
       case 'sudo': output = <SudoOutput />; break;
       case './mashu.sh': output = <MashuOutput />; break;
-      default: output = <div className="mt-2 mb-6 text-green-500 opacity-80">Command not found: {cmd}. Type 'help' for available commands.</div>;
+      default: output = <div className="mt-2 mb-6 text-green-500 opacity-80">{cmd}: command not found. Type 'help' for available commands.</div>;
     }
 
     setHistory(prev => [...prev, { id: Date.now(), command: cmdStr, output }]);
@@ -227,7 +227,7 @@ export default function InteractiveTerminal() {
             {item.command && (
               <div className="flex gap-2 opacity-80">
                 <span className="text-green-400 whitespace-nowrap">somak@bengaluru:~$</span>
-                <span>{item.command}</span>
+                <span className="text-white">{item.command}</span>
               </div>
             )}
             {item.output}
@@ -243,7 +243,7 @@ export default function InteractiveTerminal() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="flex-1 bg-transparent border-none outline-none text-green-500 caret-green-500"
+            className="flex-1 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-white caret-white"
             autoFocus
             spellCheck={false}
             autoComplete="off"
