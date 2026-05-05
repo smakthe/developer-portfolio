@@ -84,7 +84,7 @@ const ExperienceOutput = () => (
 
 const ProjectsOutput = () => (
   <div className="mt-2 mb-6">
-    <p className="mb-4 text-green-400">Executing project fetch...</p>
+    <p className="mb-4 text-green-400">Fetching projects...</p>
     {projects.map((p, i) => (
       <div key={i} className="mb-4 pl-4 border-l-2 border-green-500/50">
         <div className="flex flex-wrap items-center gap-3 mb-1">
@@ -106,7 +106,7 @@ const ResumeOutput = () => (
     <a href="https://somak-resume.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:bg-green-500 hover:text-black px-6 py-2 border border-green-500 inline-flex items-center gap-2 transition-colors">
       [VIEW RESUME] <ExternalLink className="w-4 h-4" />
     </a>
-</div>
+  </div>
 );
 
 const MashuOutput = () => (
@@ -122,7 +122,7 @@ Meow! I'm Mashu the Persian cat!
 
 const SudoOutput = () => (
   <div className="mt-2 mb-6 text-red-500 font-bold">
-    somak is not in the sudoers file. This incident will be reported.
+    You are not in the sudoers file. This incident will be reported.
   </div>
 );
 
@@ -131,9 +131,16 @@ type HistoryItem = { id: number; command?: string; output: ReactNode };
 
 export default function InteractiveTerminal() {
   const [input, setInput] = useState('');
+  
+  // State for rendering output
   const [history, setHistory] = useState<HistoryItem[]>([
     { id: Date.now(), output: <WelcomeOutput /> }
   ]);
+  
+  // State for arrow key navigation
+  const [cmdHistory, setCmdHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState<number>(-1);
+
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -150,6 +157,10 @@ export default function InteractiveTerminal() {
   const executeCommand = (cmdStr: string) => {
     const cmd = cmdStr.trim().toLowerCase();
     if (!cmd) return;
+
+    // Add command to navigation history
+    setCmdHistory((prev) => [...prev, cmdStr]);
+    setHistoryIndex(-1); // Reset index after executing
 
     if (cmd === 'clear') {
       setHistory([]);
@@ -174,6 +185,33 @@ export default function InteractiveTerminal() {
 
     setHistory(prev => [...prev, { id: Date.now(), command: cmdStr, output }]);
     setInput('');
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      executeCommand(input);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault(); // Prevent cursor jumping
+      if (cmdHistory.length > 0) {
+        // If we are not currently navigating history, start from the last command
+        const newIndex = historyIndex === -1 ? cmdHistory.length - 1 : Math.max(0, historyIndex - 1);
+        setHistoryIndex(newIndex);
+        setInput(cmdHistory[newIndex]);
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex !== -1) {
+        const newIndex = historyIndex + 1;
+        // If we go past the newest command, clear the input
+        if (newIndex >= cmdHistory.length) {
+          setHistoryIndex(-1);
+          setInput('');
+        } else {
+          setHistoryIndex(newIndex);
+          setInput(cmdHistory[newIndex]);
+        }
+      }
+    }
   };
 
   return (
@@ -204,7 +242,7 @@ export default function InteractiveTerminal() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && executeCommand(input)}
+            onKeyDown={handleKeyDown}
             className="flex-1 bg-transparent border-none outline-none text-green-500 caret-green-500"
             autoFocus
             spellCheck={false}
