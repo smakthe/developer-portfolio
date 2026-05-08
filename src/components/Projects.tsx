@@ -12,12 +12,41 @@ const projects: {
   url: string;
   variant: CardVariant;
 }[] = [
+  
+  {
+    title: "Ecomart",
+    description: "A high-performance e-commerce platform featuring a responsive React and TypeScript frontend powered by a secure, JWT-authenticated Ruby on Rails REST API.",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/e-commerce.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://ecomart-online.netlify.app//",
+    variant: 'large',
+  },
+  {
+    title: "School Manager",
+    description: "A comprehensive and role-based school administration platform featuring a React frontend with tailored user dashboards, powered by a secure Ruby on Rails API and Elasticsearch.",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/school-manager.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://sm-online.netlify.app/",
+    variant: 'large',
+  },
+  {
+    title: "Job Board",
+    description: "A comprehensive web platform built with Ruby on Rails that connects job seekers with recruiters featuring job listings, applications, and dashboards for both recruiters and job seekers",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/job-board.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://job-board-vnd1.onrender.com/",
+    variant: 'large',
+  },
   {
     title: "Web Developer's Dictionary",
     description: "Designed for web developers, the Webdev Dictionary is your go-to app for exploring keywords related to web development and their definitions",
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/wdictionary.png?auto=format&fit=crop&q=80&w=800",
     url: "https://wdictionary.vercel.app/",
-    variant: 'large',
+    variant: 'medium',
+  },
+  {
+    title: "DFA Simulator",
+    description: "A simulator for creating finite state machines and playing around with them",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/dfa-sim.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://dfa-sim.netlify.app/",
+    variant: 'medium',
   },
   {
     title: "AI or Not Game",
@@ -39,20 +68,6 @@ const projects: {
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/snake-game.png?auto=format&fit=crop&q=80&w=800",
     url: "https://github.com/smakthe/snake-game/",
     variant: 'dark',
-  },
-  {
-    title: "DFA Simulator",
-    description: "A simulator for creating finite state machines and playing around with them",
-    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/dfa-sim.png?auto=format&fit=crop&q=80&w=800",
-    url: "https://dfa-sim.netlify.app/",
-    variant: 'medium',
-  },
-  {
-    title: "Job Board",
-    description: "A comprehensive web platform built with Ruby on Rails that connects job seekers with recruiters featuring job listings, applications, and dashboards for both recruiters and job seekers",
-    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/job-board.png?auto=format&fit=crop&q=80&w=800",
-    url: "https://job-board-vnd1.onrender.com/",
-    variant: 'large',
   },
   {
     title: "Cerver",
