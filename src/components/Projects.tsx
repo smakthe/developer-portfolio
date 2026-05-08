@@ -28,18 +28,18 @@ const projects: {
     variant: 'medium',
   },
   {
-    title: "School Manager",
-    description: "A comprehensive and role-based school administration platform featuring a React frontend with tailored user dashboards, powered by a secure Ruby on Rails API and Elasticsearch.",
-    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/school-manager.png?auto=format&fit=crop&q=80&w=800",
-    url: "https://sm-online.netlify.app/",
-    variant: 'large',
-  },
-  {
     title: "Web Developer's Dictionary",
     description: "Designed for web developers, the Webdev Dictionary is your go-to app for exploring keywords related to web development and their definitions",
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/wdictionary.png?auto=format&fit=crop&q=80&w=800",
     url: "https://wdictionary.vercel.app/",
     variant: 'medium',
+  },
+  {
+    title: "School Manager",
+    description: "A comprehensive and role-based school administration platform featuring a React frontend with tailored user dashboards, powered by a secure Ruby on Rails API and Elasticsearch.",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/school-manager.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://sm-online.netlify.app/",
+    variant: 'large',
   },
   {
     title: "DFA Simulator",
