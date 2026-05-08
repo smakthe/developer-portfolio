@@ -86,7 +86,7 @@ const projects: {
 ];
 
 // Minimal — indices that render as full-width featured cards
-const isFullWidth = (index: number) => [0, 3, 6, 7].includes(index);
+const isFullWidth = (index: number) => [0, 2].includes(index);
 
 // Bento — grid-span classes per variant
 const getBentoSpanClass = (variant: CardVariant) =>
