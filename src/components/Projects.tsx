@@ -21,18 +21,18 @@ const projects: {
     variant: 'large',
   },
   {
-    title: "School Manager",
-    description: "A comprehensive and role-based school administration platform featuring a React frontend with tailored user dashboards, powered by a secure Ruby on Rails API and Elasticsearch.",
-    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/school-manager.png?auto=format&fit=crop&q=80&w=800",
-    url: "https://sm-online.netlify.app/",
-    variant: 'large',
-  },
-  {
     title: "Job Board",
     description: "A comprehensive web platform built with Ruby on Rails that connects job seekers with recruiters featuring job listings, applications, and dashboards for both recruiters and job seekers",
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/job-board.png?auto=format&fit=crop&q=80&w=800",
     url: "https://job-board-vnd1.onrender.com/",
     variant: 'medium',
+  },
+  {
+    title: "School Manager",
+    description: "A comprehensive and role-based school administration platform featuring a React frontend with tailored user dashboards, powered by a secure Ruby on Rails API and Elasticsearch.",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/school-manager.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://sm-online.netlify.app/",
+    variant: 'large',
   },
   {
     title: "Web Developer's Dictionary",
