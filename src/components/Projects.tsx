@@ -17,7 +17,7 @@ const projects: {
     title: "Ecomart",
     description: "A high-performance e-commerce platform featuring a responsive React and TypeScript frontend powered by a secure, JWT-authenticated Ruby on Rails REST API.",
     image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/e-commerce.png?auto=format&fit=crop&q=80&w=800",
-    url: "https://ecomart-online.netlify.app//",
+    url: "https://ecomart-online.netlify.app/",
     variant: 'large',
   },
   {
