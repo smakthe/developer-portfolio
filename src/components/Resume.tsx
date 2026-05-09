@@ -1,21 +1,23 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FileText, ExternalLink, ArrowRight } from 'lucide-react';
-import { ThemeType } from '../App';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FileText, ExternalLink, ArrowRight } from "lucide-react";
+import { ThemeType } from "../App";
 
 export default function Resume({ theme }: { theme: ThemeType }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
   });
 
-  if (theme === 'terminal') {
+  if (theme === "terminal") {
     return (
       <section className="py-20 px-4 md:px-20 mb-20" id="resume" ref={ref}>
         <div className="max-w-4xl mx-auto border-t border-green-500/30 pt-10">
           <p className="mb-8 opacity-80">{`somak@bengaluru:~$ curl -L "https://somak-resume.vercel.app/"`}</p>
           <div className="border border-green-500/50 p-6 text-center">
-            <p className="mb-4">Like what you see? Review my full credentials.</p>
+            <p className="mb-4">
+              Like what you see? Review my full credentials.
+            </p>
             <a
               href="https://somak-resume.vercel.app/"
               target="_blank"
@@ -31,21 +33,25 @@ export default function Resume({ theme }: { theme: ThemeType }) {
   }
 
   return (
-    <section className={`py-20 ${theme === 'minimal' ? 'bg-white' : 'bg-slate-100'}`} id="resume">
+    <section
+      className={`py-20 ${theme === "minimal" ? "bg-white" : "bg-slate-100"}`}
+      id="resume"
+    >
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           ref={ref}
         >
-          {theme === 'minimal' ? (
+          {theme === "minimal" ? (
             <div className="border-y border-gray-200 py-24 mt-10 flex flex-col md:flex-row justify-between items-center text-left">
               <div className="max-w-2xl">
                 <h2 className="text-5xl md:text-7xl font-bold text-black tracking-tighter mb-6">
                   Like what you see?
                 </h2>
                 <p className="text-xl text-gray-500 font-light leading-relaxed">
-                  Check out my resume to learn more about my experience, skills, and achievements.
+                  Check out my resume to learn more about my experience, skills,
+                  and achievements.
                 </p>
               </div>
               <motion.a
@@ -70,7 +76,8 @@ export default function Resume({ theme }: { theme: ThemeType }) {
                     Like what you see?
                   </h2>
                   <p className="text-lg text-slate-600 max-w-xl">
-                    Check out my resume to learn more about my experience, skills, and achievements.
+                    Check out my resume to learn more about my experience,
+                    skills, and achievements.
                   </p>
                 </div>
               </div>
