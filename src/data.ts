@@ -16,10 +16,10 @@ export const projects = [
     variant: 'medium' as CardVariant,
   },
   {
-    title: "Web Developer's Dictionary",
-    description: "Designed for web developers, the Webdev Dictionary is your go-to app for exploring keywords related to web development and their definitions",
-    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/wdictionary.png?auto=format&fit=crop&q=80&w=800",
-    url: "https://wdictionary.vercel.app/",
+    title: "Developer's Dictionary",
+    description: "Designed for software and web developers, this Dictionary is your go-to app for searching keywords related to development and exploring their definitions",
+    image: "https://pub-227e9e1887224eafbf51e8c0f4728352.r2.dev/developers-dictionary.png?auto=format&fit=crop&q=80&w=800",
+    url: "https://developers-dictionary.vercel.app/",
     variant: 'medium' as CardVariant,
   },
   {
